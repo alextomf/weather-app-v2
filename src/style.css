@@ -1,0 +1,117 @@
+body {
+  background-image: url("../media/images/aurora.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: #212529;
+}
+
+footer {
+  max-width: 250px;
+  margin: 0 auto;
+  margin-top: 10px;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 5px;
+}
+
+h1 {
+  font-size: 36px;
+}
+
+h2 {
+  font-size: 16px;
+}
+
+h3 {
+  font-size: 40px;
+}
+
+h4 {
+  font-size: 20px;
+}
+
+a {
+  color: #1968b6;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+a:hover {
+  color: #6da2d7;
+}
+
+img {
+  width: 64px;
+  height: 64px;
+  margin-left: 40x;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+  margin: 0;
+  margin-top: 10px;
+  padding: 0;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 19px;
+}
+
+.weather-app-wrapper {
+  max-width: 600px;
+  margin: 30px auto;
+}
+
+.weather-app {
+  padding: 20px;
+  border: 1px solid #dadde1;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.4);
+  box-shadow: 2px 2px 2px rgba(255, 255, 255, 0.8);
+}
+
+.weather-forecast {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.current-temp {
+  font-size: 48px;
+}
+
+.units {
+  position: relative;
+  font-size: 24px;
+  top: -16px;
+}
+
+.feels_like {
+  font-size: 14px;
+}
+
+.description {
+  font-size: 14px;
+  text-align: center;
+  margin-top: 5px;
+}
+
+.icon {
+  text-align: center;
+}
+
+.temp-max {
+  font-weight: bolder;
+}
+
+.temp-min {
+  font-style: italic;
+  color: #212529;
+}
+
+.more-info {
+  font-weight: bold;
+}
