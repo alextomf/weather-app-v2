@@ -40,10 +40,10 @@ a:hover {
   color: #6da2d7;
 }
 
+
 img {
-  width: 64px;
-  height: 64px;
-  margin-left: 40x;
+  width: 16px;
+  height: 16px;
 }
 
 ul {
@@ -101,6 +101,12 @@ li {
 
 .icon {
   text-align: center;
+}
+
+.icon img {
+  width: 64px;
+  height: 64px;
+  margin-left: 40x;
 }
 
 .temp-max {
