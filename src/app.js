@@ -1,3 +1,5 @@
+//current date
+
 function formatDate(timestamp) {
   let date = new Date(timestamp);
 
@@ -40,6 +42,8 @@ function formatDate(timestamp) {
   let weekDay = days[date.getDay()];
   return `${weekDay}, ${day} ${month}, ${hours}:${minutes}`;
 }
+
+//current weather for searched city
 
 function showWeather(response) {
   // console.log(response.data);
@@ -86,6 +90,8 @@ function handleSubmit(event) {
   let cityElement = document.querySelector("#search-city");
   search(cityElement.value);
 }
+
+//unit conversion
 
 function convertToFaherheit(event) {
   event.preventDefault();
