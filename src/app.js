@@ -51,16 +51,26 @@ function displayWeather(response) {
     );
   document
     .querySelector("#icon")
-    .setAttribute(
-      "alt",response.data.weather[0].description);
+    .setAttribute("alt", response.data.weather[0].description);
 }
 
+function search(city) {
+  let apiKey = "41f9f6ba4afb61d172bc15ed2c8d65a6";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayWeather);
+}
+
+function handleSubmit(event) {
+  event.preventDefault();
+  let cityElement = document.querySelector("#search-city");
+  search(cityElement.value);
+}
+
+let form = document.querySelector("#search-city-form");
+form.addEventListener("submit", handleSubmit);
+
+search("Lodz");
 // let apiKey = "d3404e661974cfd3od9d68t5333a8f2b";
 // let apiUrl = 'https://api.shecodes.io/weather/v1/current?query=Lodz&key=${apiKey}'
 
-let apiKey = "41f9f6ba4afb61d172bc15ed2c8d65a6";
-let city = "lodz";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-
-console.log(apiUrl);
-axios.get(apiUrl).then(displayWeather);
+// console.log(apiUrl);
