@@ -10,20 +10,19 @@ function formatDate(timestamp) {
   if (minutes < 10) {
     minutes = `0${minutes}`;
   }
-    let days = [
-      "Sunday",
-      "Monday",
-      "Tuesday",
-      "Wednesday",
-      "Thursday",
-      "Friday",
-      "Saturday",
-    ];
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
 
-    let day = days[date.getDay()];
-    return `${day}, ${hours}:${minutes}`;
-  }
-
+  let day = days[date.getDay()];
+  return `${day}, ${hours}:${minutes}`;
+}
 
 function displayWeather(response) {
   console.log(response.data);
@@ -44,13 +43,24 @@ function displayWeather(response) {
   document.querySelector("#date").innerHTML = formatDate(
     response.data.dt * 1000
   );
+  document
+    .querySelector("#icon")
+    .setAttribute(
+      "src",
+      `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+    );
+  document
+    .querySelector("#icon")
+    .setAttribute(
+      "alt",response.data.weather[0].description);
 }
 
 // let apiKey = "d3404e661974cfd3od9d68t5333a8f2b";
 // let apiUrl = 'https://api.shecodes.io/weather/v1/current?query=Lodz&key=${apiKey}'
 
 let apiKey = "41f9f6ba4afb61d172bc15ed2c8d65a6";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=Lodz&appid=${apiKey}&units=metric`;
+let city = "lodz";
+let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
 console.log(apiUrl);
 axios.get(apiUrl).then(displayWeather);
