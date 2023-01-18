@@ -40,7 +40,6 @@ a:hover {
   color: #6da2d7;
 }
 
-
 img {
   width: 16px;
   height: 16px;
@@ -83,12 +82,6 @@ li {
   font-size: 48px;
 }
 
-.units {
-  position: relative;
-  font-size: 24px;
-  top: -16px;
-}
-
 .feels_like {
   font-size: 16px;
 }
@@ -124,4 +117,23 @@ li {
 
 .more-info {
   font-weight: bold;
+}
+
+.temp-description .units {
+  position: relative;
+  font-size: 24px;
+  top: -16px;
+}
+
+.temp-description .active {
+  cursor: default;
+  color: #212529;
+}
+
+.temp-description .active:hover {
+  text-decoration: none;
+}
+
+.temp-description a {
+  color: #3d464f
 }
