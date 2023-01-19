@@ -141,18 +141,18 @@ function convertToCelsius(event) {
   tempElement.innerHTML = Math.round(celsiusTemp);
 }
 
-// function showLocation(response) {
-//   let apiKey = "41f9f6ba4afb61d172bc15ed2c8d65a6";
-//   let lat = response.coords.latitude;
-//   let lon = response.coords.longitude;
-//   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=&appid=${apiKey}&${lat}&lon=${lon}&units=metric`;
-//   axios.get(apiUrl).then(showWeather);
-// }
+function retrieveLocation(response) {
+  let apiKey = "8944afa6845bd7c413a687258d3211ef";
+  let lat = response.coords.latitude;
+  let lon = response.coords.longitude;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=&appid=${apiKey}&${lat}&lon=${lon}&units=metric`;
+  axios.get(apiUrl).then(showWeather);
+}
 
-// function handleClick(event) {
-//   event.preventDefault();
-//   navigator.geolocation.getCurrentPosition(showLocation);
-// }
+function getLocation(event) {
+  event.preventDefault();
+  navigator.geolocation.getCurrentPosition(retrieveLocation);
+}
 
 let celsiusTemp = null;
 
@@ -165,7 +165,7 @@ tempFahrenheit.addEventListener("click", convertToFaherheit);
 let tempCelsius = document.querySelector("#temp-cels");
 tempCelsius.addEventListener("click", convertToCelsius);
 
-// let locationButton = document.querySelector("#current-location-button");
-// locationButton.addEventListener("click", handleClick);
+let locationButton = document.querySelector("#current-location-btn");
+locationButton.addEventListener("click", getLocation);
 
 search("Lodz");
