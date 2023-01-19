@@ -141,24 +141,7 @@ function handleSubmit(event) {
   search(cityElement.value);
 }
 
-//unit conversion
-
-function convertToFaherheit(event) {
-  event.preventDefault();
-  let tempElement = document.querySelector("#current-temp");
-  tempCelsius.classList.remove("active");
-  tempFahrenheit.classList.add("active");
-  let fahrenheitTemp = (celsiusTemp * 9) / 5 + 32;
-  tempElement.innerHTML = Math.round(fahrenheitTemp);
-}
-
-function convertToCelsius(event) {
-  event.preventDefault();
-  tempCelsius.classList.add("active");
-  tempFahrenheit.classList.remove("active");
-  let tempElement = document.querySelector("#current-temp");
-  tempElement.innerHTML = Math.round(celsiusTemp);
-}
+// Location
 
 function retrieveLocation(response) {
   let apiKey = "8944afa6845bd7c413a687258d3211ef";
@@ -173,16 +156,8 @@ function getLocation(event) {
   navigator.geolocation.getCurrentPosition(retrieveLocation);
 }
 
-let celsiusTemp = null;
-
 let form = document.querySelector("#search-city-form");
 form.addEventListener("submit", handleSubmit);
-
-let tempFahrenheit = document.querySelector("#temp-fahr");
-tempFahrenheit.addEventListener("click", convertToFaherheit);
-
-let tempCelsius = document.querySelector("#temp-cels");
-tempCelsius.addEventListener("click", convertToCelsius);
 
 let locationButton = document.querySelector("#current-location-btn");
 locationButton.addEventListener("click", getLocation);
