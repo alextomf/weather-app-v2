@@ -76,6 +76,8 @@ function showForecast(response) {
     <div class="forecast-temp-min" id="temp-min">${Math.round(
       forecastDay.temp.min
     )}°</div>
+    <div class="forecast-description" id="forecast-description">${forecastDay.weather[0].description}
+    </div>
     </div>
     `;
     }
@@ -94,7 +96,7 @@ function getForecast(coords) {
 //current weather for searched city
 
 function showWeather(response) {
-  //console.log(response.data);
+  console.log(response.data);
   document.querySelector("#city").innerHTML = response.data.name;
   document.querySelector("#current-temp").innerHTML = Math.round(
     response.data.main.temp
@@ -128,7 +130,7 @@ function showWeather(response) {
 function changeBackground(response) {
   let weather = response.data.weather[0].main;
   let description = response.data.weather[0].description;
-  console.log(response.data.weather);
+  // console.log(response.data.weather);
   if (weather === "Rain" || weather === "Drizzle") {
     document.body.style.backgroundImage = "url(/media/background/rainy.jpg)";
   } else if (weather === "Snow") {
@@ -162,8 +164,6 @@ function search(city) {
   axios.get(apiUrl).then(showWeather);
   axios.get(apiUrl).then(changeBackground);
 }
-// let apiKey = "d3404e661974cfd3od9d68t5333a8f2b";
-// let apiUrl = 'https://api.shecodes.io/weather/v1/current?query=Lodz&key=${apiKey}'
 
 function handleSubmit(event) {
   event.preventDefault();

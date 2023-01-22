@@ -70,7 +70,7 @@ li {
   border: 1px solid #dadde1;
   border-radius: 5px;
   background-color: rgba(255, 255, 255, 0.8);
-  box-shadow: 2px 2px 2px rgba(255, 255, 255, 0.8);
+  box-shadow: 2px 2px 2px rgba(255, 255, 255, 0.5);
 }
 
 .current-temp {
@@ -156,5 +156,14 @@ li {
 .forecast-temp-min {
   font-size: 16px;
   font-style: italic;
-  color:#3d464f;
+  color: #3d464f;
+}
+
+.forecast-description {
+  font-size: 13px;
+  color: #212529;
+}
+
+.forecast-description::first-letter {
+  text-transform: capitalize;
 }
