@@ -178,7 +178,7 @@ function retrieveLocation(response) {
   let apiKey = "8944afa6845bd7c413a687258d3211ef";
   let lat = response.coords.latitude;
   let lon = response.coords.longitude;
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=&appid=${apiKey}&${lat}&lon=${lon}&units=metric`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?appid=${apiKey}&lat=${lat}&lon=${lon}&units=metric`;
   axios.get(apiUrl).then(showWeather);
 }
 
