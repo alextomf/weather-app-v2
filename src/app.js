@@ -52,7 +52,7 @@ function formatForecastDay(timestamp) {
 // Forecast
 
 function showForecast(response) {
-  // console.log(response.data);
+  console.log(response.data);
   let forecast = response.data.daily;
 
   let forecastElement = document.querySelector("#forecast-weather");
@@ -76,7 +76,9 @@ function showForecast(response) {
     <div class="forecast-temp-min" id="temp-min">${Math.round(
       forecastDay.temp.min
     )}°</div>
-    <div class="forecast-description" id="forecast-description">${forecastDay.weather[0].description}
+    <div class="forecast-description" id="forecast-description">${
+      forecastDay.weather[0].description
+    }
     </div>
     </div>
     `;
@@ -130,7 +132,6 @@ function showWeather(response) {
 function changeBackground(response) {
   let weather = response.data.weather[0].main;
   let description = response.data.weather[0].description;
-  // console.log(response.data.weather);
   if (weather === "Rain" || weather === "Drizzle") {
     document.body.style.backgroundImage = "url(/media/background/rainy.jpg)";
   } else if (weather === "Snow") {
