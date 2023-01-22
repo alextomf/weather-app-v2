@@ -94,7 +94,7 @@ function getForecast(coords) {
 //current weather for searched city
 
 function showWeather(response) {
-  console.log(response.data);
+  //console.log(response.data);
   document.querySelector("#city").innerHTML = response.data.name;
   document.querySelector("#current-temp").innerHTML = Math.round(
     response.data.main.temp
@@ -122,15 +122,45 @@ function showWeather(response) {
     .querySelector("#icon")
     .setAttribute("alt", response.data.weather[0].description);
 
-  celsiusTemp = response.data.main.temp;
-
   getForecast(response.data.coord);
+}
+
+function changeBackground(response) {
+  let weather = response.data.weather[0].main;
+  let description = response.data.weather[0].description;
+  console.log(response.data.weather);
+  if (weather === "Rain" || weather === "Drizzle") {
+    document.body.style.backgroundImage = "url(/media/background/rainy.jpg)";
+  } else if (weather === "Snow") {
+    document.body.style.backgroundImage = "url(/media/background/snow.jpg)";
+  } else if (weather === "Thundestorm") {
+    document.body.style.backgroundImage = "url(/media/background/thunders.jpg)";
+  } else if (
+    weather === "Clouds" &&
+    (description === "few clouds" || description === "scattered clouds")
+  ) {
+    document.body.style.backgroundImage =
+      "url(/media/background/few-clouds.jpg)";
+  } else if (
+    weather === "Clouds" &&
+    (description === "broken clouds" || description === "overcast clouds")
+  ) {
+    document.body.style.backgroundImage = "url(/media/background/clouds.jpg)";
+  } else if (weather === "Mist" || weather === "Fog" || weather === "Haze") {
+    document.body.style.backgroundImage = "url(/media/background/mist.jpg)";
+  } else if (weather === "Clear") {
+    document.body.style.backgroundImage =
+      "url(/media/background/clear-sky.jpg)";
+  } else
+    document.body.style.backgroundImage =
+      "url(/media/background/clear-sky-night.jpg)";
 }
 
 function search(city) {
   let apiKey = "41f9f6ba4afb61d172bc15ed2c8d65a6";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(showWeather);
+  axios.get(apiUrl).then(changeBackground);
 }
 // let apiKey = "d3404e661974cfd3od9d68t5333a8f2b";
 // let apiUrl = 'https://api.shecodes.io/weather/v1/current?query=Lodz&key=${apiKey}'
