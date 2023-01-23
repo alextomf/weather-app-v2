@@ -67,9 +67,9 @@ function showForecast(response) {
     <div class="forecast-date" id="forecast-date">${formatForecastDay(
       forecastDay.dt
     )}</div>
-    <img src="http://openweathermap.org/img/wn/${
+    <img src="/media/icons/${
       forecastDay.weather[0].icon
-    }@2x.png" class="forecast-icon" id="forecast-icon">
+    }.png" class="forecast-icon" id="forecast-icon">
     <div class="forecast-temp-max" id="temp-max">${Math.round(
       forecastDay.temp.max
     )}°</div>
@@ -118,10 +118,7 @@ function showWeather(response) {
   );
   document
     .querySelector("#icon")
-    .setAttribute(
-      "src",
-      `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
-    );
+    .setAttribute("src", `/media/icons/${response.data.weather[0].icon}.png`);
   document
     .querySelector("#icon")
     .setAttribute("alt", response.data.weather[0].description);
